@@ -1,4 +1,4 @@
-package guru.springframework.spring5dragonfly;
+package marinemaks.springframework.spring5dragonfly;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
