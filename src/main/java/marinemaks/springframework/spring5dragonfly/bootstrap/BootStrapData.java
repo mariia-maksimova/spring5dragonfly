@@ -49,7 +49,7 @@ public class BootStrapData implements CommandLineRunner {
         authorRepository.save(bob);
         bookRepository.save(thriller);
 
-        Address address = new Address("First line", "Second line", "City", "County", "Country", "Postcode");
+        Address address = new Address("Flat 1", "1 Olive Street", "Big City", "Small County", "Secret Country", "123456");
         Publisher publisher = new Publisher("Best Publisher", address);
 
         addressRepository.save(address);
@@ -60,5 +60,6 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println("Number of Authors: " + authorRepository.count());
         System.out.println("Number of Addresses: " + addressRepository.count());
         System.out.println("Number of Publishers: " + publisherRepository.count());
+
     }
 }
