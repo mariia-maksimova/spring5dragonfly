@@ -108,7 +108,6 @@ public class Address {
                 ", county='" + county + '\'' +
                 ", country='" + country + '\'' +
                 ", postcode='" + postcode + '\'' +
-                ", publishers=" + publishers +
                 '}';
     }
 
