@@ -40,7 +40,7 @@ public class BootStrapData implements CommandLineRunner {
 
         Author bob = createAuthor("Bob", "Andrews");
         Book thriller = createBook("Thriller Book", "654321", Set.of(bob), publisher);
-        Book thriller2 = createBook("Thriller Book 2", "654321", Set.of(bob), publisher2);
+        Book thriller2 = createBook("Thriller Book 2", "654321", Set.of(anna, bob), publisher2);
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Books: " + bookRepository.count());
