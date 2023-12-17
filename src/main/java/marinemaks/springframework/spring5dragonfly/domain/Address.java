@@ -19,8 +19,9 @@ public class Address {
     private String country;
     private String postcode;
 
-    @OneToMany(mappedBy = "address")
-    private Set<Publisher> publishers = new HashSet<>();;
+    @OneToMany
+    @JoinColumn(name = "address_id")
+    private Set<Publisher> publishers = new HashSet<>();
 
     public Address() {
     }
@@ -118,26 +119,11 @@ public class Address {
 
         Address address = (Address) o;
 
-        if (!Objects.equals(id, address.id)) return false;
-        if (!Objects.equals(line1, address.line1)) return false;
-        if (!Objects.equals(line2, address.line2)) return false;
-        if (!Objects.equals(city, address.city)) return false;
-        if (!Objects.equals(county, address.county)) return false;
-        if (!Objects.equals(country, address.country)) return false;
-        if (!Objects.equals(postcode, address.postcode)) return false;
-        return Objects.equals(publishers, address.publishers);
+        return Objects.equals(id, address.id);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (line1 != null ? line1.hashCode() : 0);
-        result = 31 * result + (line2 != null ? line2.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (county != null ? county.hashCode() : 0);
-        result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + (postcode != null ? postcode.hashCode() : 0);
-        result = 31 * result + (publishers != null ? publishers.hashCode() : 0);
-        return result;
+        return id != null ? id.hashCode() : 0;
     }
 }

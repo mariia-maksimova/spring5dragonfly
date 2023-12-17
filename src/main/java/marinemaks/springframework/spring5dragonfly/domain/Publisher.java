@@ -3,6 +3,8 @@ package marinemaks.springframework.spring5dragonfly.domain;
 import jakarta.persistence.*;
 
 import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Publisher {
@@ -13,10 +15,11 @@ public class Publisher {
     private String name;
 
     @ManyToOne
-    @JoinTable(name = "publisher_address",
-            joinColumns = @JoinColumn(name = "publisher_id"),
-            inverseJoinColumns =  @JoinColumn(name = "address_id"))
     private Address address;
+
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private Set<Book> books = new HashSet<>();
 
     public Publisher() {
     }
@@ -49,12 +52,20 @@ public class Publisher {
         this.address = address;
     }
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
     @Override
     public String toString() {
         return "Publisher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", address=" + address +
+                ", books=" + books +
                 '}';
     }
 
@@ -65,16 +76,11 @@ public class Publisher {
 
         Publisher publisher = (Publisher) o;
 
-        if (!Objects.equals(id, publisher.id)) return false;
-        if (!Objects.equals(name, publisher.name)) return false;
-        return Objects.equals(address, publisher.address);
+        return Objects.equals(id, publisher.id);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        return result;
+        return id != null ? id.hashCode() : 0;
     }
 }
