@@ -17,7 +17,7 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> books = new HashSet<>();;
+    private Set<Book> books = new HashSet<>();
 
     public Author() {
     }
@@ -70,7 +70,7 @@ public class Author {
     }
 
     @Override
-    public boolean equals(Object o) { // IntelliJ IDEA generated this method
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 

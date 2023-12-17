@@ -12,6 +12,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String title;
     private String isbn;
 
@@ -83,7 +84,7 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object o) { // IntelliJ IDEA generated this method
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 

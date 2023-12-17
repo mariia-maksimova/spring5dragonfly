@@ -65,7 +65,7 @@ public class Publisher {
         return "Publisher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", books=" + books +
+                ", address=" + address +
                 '}';
     }
 
